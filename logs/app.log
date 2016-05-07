@@ -1,0 +1,43 @@
+2016-05-07 03:22:10,905 [main            ] [          ] INFO  org.eclipse.jetty.server.Server - jetty-8.1.8.v20121106
+2016-05-07 03:22:11,300 [main            ] [          ] INFO  restx.RestxMainRouterFactory - LOADING MAIN ROUTER
+2016-05-07 03:22:11,304 [main            ] [          ] INFO  restx.RestxMainRouterFactory - 
+--------------------------------------
+ -- RESTX >> LOAD ON REQUEST << >> DEV MODE << >> AUTO COMPILE <<
+ -- for admin console,
+ --   VISIT http://127.0.0.1:8080/api/@/ui/
+ --
+
+2016-05-07 03:22:12,875 [pool-1-thread-1 ] [          ] INFO  restx.classloader.CompilationManager - compilation finished: 9 sources compiled in 1.479 s
+2016-05-07 03:22:13,523 [main            ] [          ] INFO  restx.classloader.CompilationManager - watching for changes in [src/main/java, src/main/resources]; current location is /Users/ivan/Documents/dev/openhack/openhack/.
+2016-05-07 03:22:13,546 [main            ] [          ] INFO  restx.monitor.MetricsConfiguration - registering Metrics JVM metrics
+2016-05-07 03:22:16,589 [qtp1177377518-21] [          ] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 5.0.1.Final
+2016-05-07 03:22:16,768 [qtp1177377518-21] [          ] INFO  restx.RestxMainRouterFactory - [RESTX REQUEST] GET /newRoute ? km=10&fromLon=1.234&tp=running&fromLat=4.123 - per request factory created in 366.0 ms
+2016-05-07 03:22:16,909 [qtp1177377518-21] [          ] INFO  openhack.rest.SRGraphHopper - version 0.6.0|2016-02-08T14:29:46Z (4,13,3,2,2,1)
+2016-05-07 03:22:16,916 [qtp1177377518-21] [          ] INFO  openhack.rest.SRGraphHopper - graph CH|foot|RAM_STORE|2D|NoExt|,,,,, details:edges:0(0MB), nodes:0(0MB), name:(0MB), geo:0(0MB), bounds:1.7976931348623157E308,-1.7976931348623157E308,1.7976931348623157E308,-1.7976931348623157E308, CHGraph|fastest, shortcuts:0, nodesCH:(0MB)
+2016-05-07 03:22:17,095 [qtp1177377518-21] [          ] INFO  openhack.rest.SRGraphHopper - start creating graph from ./santander_spain.osm.pbf
+2016-05-07 03:22:17,096 [qtp1177377518-21] [          ] INFO  openhack.rest.SRGraphHopper - using CH|foot|RAM_STORE|2D|NoExt|,,,,, memory:totalMB:182, usedMB:72
+2016-05-07 03:22:18,411 [qtp1177377518-21] [          ] INFO  com.graphhopper.reader.OSMReader - creating graph. Found nodes (pillar+tower):61 189, totalMB:321, usedMB:136
+2016-05-07 03:22:18,932 [qtp1177377518-21] [          ] INFO  com.graphhopper.reader.OSMReader - 179 439, now parsing ways
+2016-05-07 03:22:19,169 [qtp1177377518-21] [          ] INFO  com.graphhopper.reader.OSMReader - 204 429, now parsing relations
+2016-05-07 03:22:19,171 [qtp1177377518-21] [          ] INFO  com.graphhopper.reader.OSMReader - finished way processing. nodes: 15041, osmIdMap.size:61233, osmIdMap:0MB, nodeFlagsMap.size:44, relFlagsMap.size:325, zeroCounter:44 totalMB:391, usedMB:264
+2016-05-07 03:22:19,173 [qtp1177377518-21] [          ] INFO  com.graphhopper.reader.OSMReader - time(pass1): 1 pass2: 0 total:2
+2016-05-07 03:22:19,174 [qtp1177377518-21] [          ] INFO  openhack.rest.SRGraphHopper - start finding subnetworks, totalMB:391, usedMB:264
+2016-05-07 03:22:19,203 [qtp1177377518-21] [          ] INFO  c.g.r.util.PrepareRoutingSubnetworks - 202 subnetworks found for foot, totalMB:391, usedMB:265
+2016-05-07 03:22:19,209 [qtp1177377518-21] [          ] INFO  c.g.r.util.PrepareRoutingSubnetworks - optimize to remove subnetworks (202), unvisited-dead-end-nodes (0), maxEdges/node (7)
+2016-05-07 03:22:19,216 [qtp1177377518-21] [          ] INFO  openhack.rest.SRGraphHopper - edges: 20366, nodes 14507, there were 202 subnetworks. removed them => 534 less nodes
+2016-05-07 03:22:19,281 [qtp1177377518-21] [          ] INFO  c.g.storage.index.LocationIndexTree - location index created in 0.06115889s, size:13 952, leafs:756, precision:300, depth:3, checksum:14507, entries:[64, 4, 4], entriesPerLeaf:18.455027
+2016-05-07 03:22:19,292 [qtp1177377518-21] [          ] INFO  openhack.rest.SRGraphHopper - 1/1 calling prepare.doWork for fastest ... (totalMB:391, usedMB:275)
+2016-05-07 03:22:19,620 [fastest         ] [          ] INFO  c.g.r.c.PrepareContractionHierarchies - 0, updates:0, nodes: 14 507, shortcuts:0, dijkstras:78 130, t(dijk):0.12, t(period):0.0, t(lazy):0.0, t(neighbor):0.0, meanDegree:1, algo:0MB, totalMB:391, usedMB:312
+2016-05-07 03:22:19,801 [fastest         ] [          ] INFO  c.g.r.c.PrepareContractionHierarchies - 2 900, updates:0, nodes: 11 607, shortcuts:460, dijkstras:81 490, t(dijk):0.26, t(period):0.0, t(lazy):0.0, t(neighbor):0.07, meanDegree:1, algo:0MB, totalMB:472, usedMB:138
+2016-05-07 03:22:20,564 [fastest         ] [          ] INFO  c.g.r.c.PrepareContractionHierarchies - 5 800, updates:1, nodes: 8 707, shortcuts:2 473, dijkstras:160 400, t(dijk):0.91, t(period):0.63, t(lazy):0.0, t(neighbor):0.13, meanDegree:1, algo:0MB, totalMB:477, usedMB:168
+2016-05-07 03:22:21,038 [fastest         ] [          ] INFO  c.g.r.c.PrepareContractionHierarchies - 8 700, updates:2, nodes: 5 807, shortcuts:6 395, dijkstras:238 399, t(dijk):1.32, t(period):0.91, t(lazy):0.0, t(neighbor):0.22, meanDegree:2, algo:0MB, totalMB:554, usedMB:170
+2016-05-07 03:22:21,566 [fastest         ] [          ] INFO  c.g.r.c.PrepareContractionHierarchies - 11 600, updates:3, nodes: 2 907, shortcuts:11 048, dijkstras:320 630, t(dijk):1.79, t(period):1.22, t(lazy):0.0, t(neighbor):0.34, meanDegree:3, algo:0MB, totalMB:554, usedMB:374
+2016-05-07 03:22:22,415 [fastest         ] [          ] INFO  c.g.r.c.PrepareContractionHierarchies - 14 500, updates:4, nodes: 564, shortcuts:16 575, dijkstras:466 282, t(dijk):2.57, t(period):1.47, t(lazy):0.15, t(neighbor):0.61, meanDegree:5, algo:0MB, totalMB:564, usedMB:183
+2016-05-07 03:22:22,931 [fastest         ] [          ] INFO  c.g.r.c.PrepareContractionHierarchies - took:3, new shortcuts: 18 109, prepare|fastest, foot, dijkstras:571613, t(dijk):3.06, t(period):1.57, t(lazy):0.28, t(neighbor):0.8, meanDegree:1, initSize:14507, periodic:20, lazy:10, neighbor:20, totalMB:564, usedMB:194
+2016-05-07 03:22:22,931 [qtp1177377518-21] [          ] INFO  openhack.rest.SRGraphHopper - flushing graph CH|foot|RAM_STORE|2D|NoExt|4,13,3,2,2, details:edges:20 366(1MB), nodes:14 507(1MB), name:(1MB), geo:75 948(1MB), bounds:-3.8859997813254545,-3.7370041848049502,43.383001760758496,43.49306118100273, CHGraph|fastest, shortcuts:18 109, nodesCH:(1MB), totalMB:564, usedMB:196)
+2016-05-07 03:22:22,979 [qtp1177377518-21] [          ] INFO  restx.StdRestxMainRouter - << [RESTX REQUEST] GET /newRoute ? km=10&fromLon=1.234&tp=running&fromLat=4.123 >> OK - 6.211 s
+2016-05-07 03:23:20,811 [qtp1177377518-21] [          ] INFO  restx.StdRestxMainRouter - << [RESTX REQUEST] GET /newRoute ? km=10&fromLon=-3&tp=running&fromLat=43.38 >> OK - 9.275 ms
+2016-05-07 03:23:24,534 [qtp1177377518-21] [          ] INFO  restx.StdRestxMainRouter - << [RESTX REQUEST] GET /newRoute ? km=10&fromLon=-3.73&tp=running&fromLat=43.38 >> OK - 5.415 ms
+2016-05-07 03:23:27,382 [qtp1177377518-30] [          ] INFO  restx.StdRestxMainRouter - << [RESTX REQUEST] GET /newRoute ? km=10&fromLon=-3.7370&tp=running&fromLat=43.38 >> OK - 10.57 ms
+2016-05-07 03:23:43,512 [qtp1177377518-30] [          ] INFO  restx.StdRestxMainRouter - << [RESTX REQUEST] GET /newRoute ? km=10&fromLon=-3.7370&tp=running&fromLat=43.38 >> OK - 5.272 ms
+2016-05-07 03:23:46,412 [qtp1177377518-30] [          ] INFO  restx.StdRestxMainRouter - << [RESTX REQUEST] GET /newRoute ? km=10&fromLon=-3.7370&tp=running&fromLat=43.38 >> OK - 5.067 ms
