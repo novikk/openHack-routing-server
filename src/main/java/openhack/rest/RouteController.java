@@ -29,23 +29,26 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import java.util.Set;
 
 import javax.validation.constraints.NotNull;
 
 @Component @RestxResource
 public class RouteController {
-	public RouteController() {
-		System.out.println("test");			
-	}
-
-    @GET("/newRoute")
+	@GET("/newRoute")
     @PermitAll
     public Message newRoute(String tp, int km, double fromLat, double fromLon) {
     	SRGraphHopper gh = GHSingleton.getInstance();
     	
-    	double newLon = fromLon + (((double)km/2)/6378)*(180/Math.PI) / Math.cos(fromLat*Math.PI/180);
-    	GHRequest req = new GHRequest(fromLat, fromLon, fromLat, newLon)
+    	Random r = new Random();
+    	double rand = r.nextDouble();
+    	
+    	//new_latitude  = latitude  + (dy / r_earth) * (180 / pi);
+
+    	double newLat = fromLat + (((double)km*Math.sin(rand*2*Math.PI)/2)/6378)*(180/Math.PI);
+    	double newLon = fromLon + (((double)km*Math.cos(rand*2*Math.PI)/2)/6378)*(180/Math.PI) / Math.cos(fromLat*Math.PI/180);
+    	GHRequest req = new GHRequest(fromLat, fromLon, newLat, newLon)
         .setAlgorithm(AlgorithmOptions.DIJKSTRA_BI)
         .setVehicle("foot")
         .setWeighting("fastest");
@@ -57,10 +60,35 @@ public class RouteController {
         String res = "";
         PointList pl = pathWrapper.getPoints();
         for (GHPoint3D p : pl) {
-        	res = res + "[" + p.getLon() + "," + p.getLat() +"],";
+        	res = res + "[" + p.getLat() + "," + p.getLon() +"],";
         }
         
-        return new Message().setMessage("[" + res + "]");
+        String res2 = res.substring(0, res.length() - 1);
+        return new Message().setMessage("[" + res2 + "]");
+    }
+	
+	@GET("/newRouteWithEnd")
+    @PermitAll
+    public Message newRouteWithEnd(String tp, int km, double fromLat, double fromLon, double toLat, double toLon) {
+    	SRGraphHopper gh = GHSingleton.getInstance();
+    	
+    	GHRequest req = new GHRequest(fromLat, fromLon, toLat, toLon)
+        .setAlgorithm(AlgorithmOptions.DIJKSTRA_BI)
+        .setVehicle("foot")
+        .setWeighting("fastest");
+
+        req.getHints().put("instructions", "true");
+        GHResponse resp = gh.route(req);
+        PathWrapper pathWrapper = resp.getBest();
+        
+        String res = "";
+        PointList pl = pathWrapper.getPoints();
+        for (GHPoint3D p : pl) {
+        	res = res + "[" + p.getLat() + "," + p.getLon() +"],";
+        }
+        
+        String res2 = res.substring(0, res.length() - 1);
+        return new Message().setMessage("[" + res2 + "]");
     }
     
     
@@ -92,7 +120,7 @@ public class RouteController {
     	SRGraphHopper gh = new SRGraphHopper(pts);
     	gh.setOSMFile("./santander_spain.osm.pbf");
     	gh.setGraphHopperLocation("./");
-    	gh.setEncodingManager(new EncodingManager("foot"));
+    	gh.setEncodingManager(new EncodingManager("FOOT"));
     	gh.importOrLoad();
     	GHSingleton.singleton = gh;
         return new Message().setMessage("ok");

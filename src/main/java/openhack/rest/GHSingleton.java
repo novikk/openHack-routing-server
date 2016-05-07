@@ -18,7 +18,7 @@ class GHSingleton {
 			 singleton = new SRGraphHopper(d);
 			 singleton.setOSMFile("./santander_spain.osm.pbf");
 			 singleton.setGraphHopperLocation("./");
-			 singleton.setEncodingManager(new EncodingManager("foot"));
+			 singleton.setEncodingManager(new EncodingManager("FOOT"));
 			 singleton.importOrLoad();
 			 //singleton.load("");
 	      }
