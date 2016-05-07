@@ -1,31 +1,31 @@
 package openhack.rest;
 public class SRPollutionData {
-	private float latitude;
-	private float longitude;
-	private float value;
+	private double latitude;
+	private double longitude;
+	private double value;
 	
-	public SRPollutionData(float lat, float lon, float val) {
+	public SRPollutionData(double lat, double lon, double val) {
 		this.latitude = lat;
 		this.longitude = lon;
 		this.value = val;
 	}
 	
-	public float getLatitude() {
-		return latitude;
+	public double getLatitude() {
+		return this.latitude;
 	}
-	public void setLatitude(float latitude) {
+	public void setLatitude(double latitude) {
 		this.latitude = latitude;
 	}
-	public float getLongitude() {
-		return longitude;
+	public double getLongitude() {
+		return this.longitude;
 	}
-	public void setLongitude(float longitude) {
+	public void setLongitude(double longitude) {
 		this.longitude = longitude;
 	}
-	public float getValue() {
+	public double getValue() {
 		return value;
 	}
-	public void setValue(float value) {
+	public void setValue(double value) {
 		this.value = value;
 	}
 }

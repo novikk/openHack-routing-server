@@ -34,6 +34,8 @@ class SRWeighting implements Weighting
     	
     	PointList pl = edgeState.fetchWayGeometry(3);
     	for (SRPollutionData d : this.pts) {
+			//System.out.println(d.getLatitude() + " " + d.getLongitude());
+
     		for (GHPoint3D p : pl) {
     			// (x - center_x)^2 + (y - center_y)^2 < radius^2
     			double xc = p.getLat() - d.getLatitude();

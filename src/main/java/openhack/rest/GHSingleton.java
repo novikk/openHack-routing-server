@@ -6,7 +6,7 @@ import java.util.Set;
 import com.graphhopper.routing.util.EncodingManager;
 
 class GHSingleton {
-	private static SRGraphHopper singleton = null;
+	public static SRGraphHopper singleton = null;
 	
 	private GHSingleton() {
 		
